@@ -125,10 +125,11 @@ blocklist.content.addBlocklistFromSearchResult = function (hostlink, searchresul
 };
 
 blocklist.content.insertAddBlockLinkInSearchResult = function (searchResult, hostlink) {
-  var insertLink = document.createElement('li');
-  insertLink.innerHTML = `<a class="fl"><span>report ${hostlink}</span></a>`
-  insertLink.classList.add("action-menu-item")
-  searchResult.querySelector('.action-menu-panel').appendChild(insertLink);
+  var insertLink = document.createElement('p');
+  insertLink.innerHTML = `report ${hostlink}`;
+  insertLink.style.cssText =
+    "color:#1a0dab;margin:0;text-decoration:underline;cursor: pointer;";
+  searchResult.appendChild(insertLink);
 
   insertLink.addEventListener("click", function () {
     blocklist.content.addBlocklistFromSearchResult(hostlink, searchResult);
