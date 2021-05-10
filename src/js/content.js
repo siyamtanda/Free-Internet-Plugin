@@ -51,22 +51,26 @@ blocklist.content.handleAddBlocklistFromSerachResult = function (response) {
 
 blocklist.content.showAddBlocklistMessage = function (pattern, section) {
   let showMessage = document.createElement('div');
-  showMessage.innerHTML = `<div style="width: 600px; height: 98px; background-color: #00E000; display: flex; justify-content: space-between;"> <div><h1>${zingers[getRand(zingers.length)]}</h1> <h2 id="undo">undro</h2></div><img src=${chrome.runtime.getURL(`images/memes/${memes[getRand(memes.length)]}`)} style="height: 98px; width: auto;"></div>`
-
-
+  let left = document.createElement('div');
+  left.style.cssText = "display: flex; flex-direction: column; justify-content: space-around; padding-left: 10px;"
+  showMessage.style.cssText = 'font-size:15px;background:#00FF00;box-sizing:border-box; display: flex; justify-content: space-between; margin: 20px 0; height: 98px;';
+  left.innerHTML = `${zingers[getRand(zingers.length)]}`;
+  let image = document.createElement("div")
+  image.innerHTML = `<img src=${chrome.runtime.getURL(`images/memes/${memes[getRand(memes.length)]}`)} style="height: 98px; width: auto;">`
 
   let cancelMessage = document.createElement('div');
   cancelMessage.classList.add("cancleBlock");
-  cancelMessage.style.cssText = "cursor: pointer;margin-top:20px;font-size:16px;font-weight: 700; color: #0066c0;";
-  cancelMessage.innerHTML = `Undo ${pattern}`;
+  cancelMessage.style.cssText = "cursor: pointer; font-size:16px;font-weight: 700; color: #0066c0;";
+  cancelMessage.innerHTML = `undo ${pattern}`
   cancelMessage.addEventListener("click", function (e) {
     blocklist.content.removePatternFromBlocklists(pattern);
-    blocklist.content.removeBlockMessage(e.target.parentNode);
+    blocklist.content.removeBlockMessage(e.target.parentNode.parentNode);
   }, false);
-  showMessage.appendChild(cancelMessage);
+  left.appendChild(cancelMessage);
+  showMessage.appendChild(left);
+  showMessage.appendChild(image);
   let parent = section.parentNode;
   parent.insertBefore(showMessage, section);
-
 }
 
 blocklist.content.removeBlockMessage = function (elm) {
@@ -128,7 +132,7 @@ blocklist.content.insertAddBlockLinkInSearchResult = function (searchResult, hos
   var insertLink = document.createElement('p');
   insertLink.innerHTML = `report ${hostlink}`;
   insertLink.style.cssText =
-    "color:#1a0dab;margin:0;text-decoration:underline;cursor: pointer;";
+    "color:#00FF00;margin:0;text-decoration:underline;cursor: pointer;";
   searchResult.appendChild(insertLink);
 
   insertLink.addEventListener("click", function () {
