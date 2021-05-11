@@ -82,10 +82,17 @@ blocklist.background.HOST_REGEX = new RegExp(
 blocklist.background.startBackgroundListeners = function () {
   chrome.runtime.onMessage.addListener(
     function (request, sender, sendResponse) {
-      if (request.type == blocklist.background.GET_BLOCKLIST) {
+
+      if (request == "updateCounter") {
+        localStorage.totalBlocked = parseInt(localStorage.totalBlocked) + 1
+        sendResponse(localStorage.totalBlocked)
+      }
+
+      else if (request.type == blocklist.background.GET_BLOCKLIST) {
         //put blocked urls here ⬇️
         let blocklistPatterns = urls;
         if (!localStorage.blocklist) {
+          localStorage.totalBlocked = 0;
           localStorage['blocklist'] = JSON.stringify(blocklistPatterns);
         } else {
           blocklistPatterns = JSON.parse(localStorage['blocklist']);

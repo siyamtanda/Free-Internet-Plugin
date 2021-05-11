@@ -132,7 +132,7 @@ blocklist.content.insertAddBlockLinkInSearchResult = function (searchResult, hos
   var insertLink = document.createElement('p');
   insertLink.innerHTML = `report ${hostlink}`;
   insertLink.style.cssText =
-    "color:#00FF00;margin:0;text-decoration:underline;cursor: pointer;";
+    "margin:0;text-decoration: none;cursor: pointer;";
   searchResult.appendChild(insertLink);
 
   insertLink.addEventListener("click", function () {
@@ -154,6 +154,7 @@ blocklist.content.modifySearchResults = function (parent_dom) {
 
       if (blocklist.content.isHostLinkInBlocklist(HostLinkPattern)) {
         searchResultPattern.style.display = "none";
+        chrome.runtime.sendMessage("updateCounter")
       } else {
         blocklist.content.insertAddBlockLinkInSearchResult(
           searchResultPattern, HostLinkPattern);

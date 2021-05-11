@@ -116,6 +116,7 @@ blocklist.popup.handleRefreshResponse = function (response) {
       var patRow = blocklist.popup.createBlocklistPattern(response.blocklist[i]);
       patRow.appendTo(listDiv);
     }
+    document.getElementById('footer').innerHTML = `We have blocked ${localStorage.totalBlocked} paywalls for you :)`
   } else {
     blocklist.popup.addBlockCurrentHostLink([]);
   }
