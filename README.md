@@ -31,7 +31,6 @@ You can install it [here!](https://chrome.google.com/webstore/detail/the-free-in
 * csmonitor.com
 * dagbladet.no
 * dallasnews.com
-* dev.to
 * dpgmedia.nl
 * economist.com
 * fijitimes.com.fj
