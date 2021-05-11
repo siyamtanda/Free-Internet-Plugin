@@ -8,6 +8,7 @@ arrow.addEventListener('click', () => {
 
 
 function type(id, text, speed) {
+  repo()
   var i = 0;
   var txt = text;
   document.getElementById(id).innerHTML = ""
@@ -28,4 +29,12 @@ function subPage() {
     type("whoTitle", "Who?", 200)
     window.onscroll = null;
   
+}
+
+const repo = async () => { 
+  await fetch('https://api.github.com/repos/hackernoon/Free-Internet-Plugin').then(response => response.json())
+            .then(data => {
+                console.log(data)
+                document.getElementById("repo").innerHTML = `Stars: ${data.stargazers_count} -  Forks: ${data.forks}  -  Watchers: ${data.subscribers_count}`
+    })
 }
