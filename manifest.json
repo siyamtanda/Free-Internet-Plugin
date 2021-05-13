@@ -1,10 +1,11 @@
 {
   "update_url": "https://clients2.google.com/service/update2/crx",
   "name": "The Free Internet Plugin!",
-  "version": "1.01",
+  "version": "1.03",
   "description": "Removes known paywalled sites from your search results.",
   "manifest_version": 2,
   "background": {
+    "persistent": true,
     "scripts": [
       "src/js/background.js"
     ]

@@ -20,21 +20,22 @@
     <title>Free Internet Plugin</title>
 </head>
 
-<body onload="type('mainTitle', 'Free Internet Plugin', 50)" onscroll="subPage()">
+<body onload="pageLoad()" onscroll="subPage()">
 
     <div id="top">
         <div id="links">
-            <a href="" class="link linkItem">Contribute</a>
+            <a href="https://github.com/hackernoon/Free-Internet-Plugin" class="link linkItem">Contribute</a>
             <a href="" class="link linkItem">Donate</a>
             <a href="" class="link linkItem">Subscribe</a>
         </div>
+        <div id="repo" class="subtitle"></div>
         <div>
                 <h1 class="title" id="mainTitle"></h1>
                 <h2 class="subtitle">Open-Sourced by HackerNoon</h2>
                 <h2 class="subtitle">Because <span style="font-weight: bolder; font-size: 1.4em;">F*ck PayWalls</span></h2>
             </div>
             <div>
-                <h1 class="title"> <a href="" class="linkItem">Install</a> </h1>
+                <h1 class="title"> <a href="https://chrome.google.com/webstore/detail/the-free-internet-plugin/lodclhfimkjdjmmjgeioendfjpgoghoo?hl=en-US" class="linkItem">Install</a> </h1>
                 <h2 class="subtitle">The Chrome browser plugin to remove paywalled content from Google search results.</h2>
             </div>
 
@@ -52,9 +53,11 @@
         </div>
         <div class="card">
             <h1 class="title" id="whoTitle"></h1>
+            <ul id="contributors"></ul>
         </div>
       
     </div>
+
 
     <script src="./js/script.js"></script>
 </body>
