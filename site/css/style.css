@@ -93,6 +93,17 @@ body {
     cursor: pointer;
 }
 
+#contributors {
+    cursor: pointer;
+    columns: 2;
+}
+#contributors a {
+    break-inside: avoid-column;
+}
+#contributors a:hover {
+    opacity: 0.5;
+}
+
 
 @keyframes arrow {
     0%   { transform: scale(1,1)    translateY(0); }
@@ -147,6 +158,9 @@ body {
     .card {
         width: 100%;
     }
+
+    #contributors {
+        columns: 1;
+    }
   
 }
-

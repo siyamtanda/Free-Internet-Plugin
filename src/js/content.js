@@ -205,4 +205,5 @@ blocklist.content.refreshBlocklist();
 document.addEventListener("DOMContentLoaded", function () {
   blocklist.content.initMutationObserver();
   blocklist.content.modifySearchResults(document);
+
 }, false);
